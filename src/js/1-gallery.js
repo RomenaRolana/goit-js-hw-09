@@ -1,3 +1,7 @@
+  // Описаний в документації
+  import SimpleLightbox from 'simplelightbox';
+  // Додатковий імпорт стилів
+  import 'simplelightbox/dist/simple-lightbox.min.css';
 const galleryItems = [
     {
       preview:
@@ -63,25 +67,18 @@ const galleryItems = [
       description: 'Lighthouse Coast Sea',
     },
   ];
-  // Описаний в документації
-import SimpleLightbox from 'simplelightbox';
-// Додатковий імпорт стилів
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
 const galleryContainerEl = document.querySelector('.gallery');
-const imagesEl = createGalleryImg(galleryItems);
-galleryContainerEl.insertAdjacentHTML('beforeend', imagesEl);
+const imagesMarkup = createGalleryMarkup(galleryItems);
+galleryContainerEl.innerHTML = imagesMarkup;
 
-function createGalleryImg(item) {
-  return galleryItems
+function createGalleryMarkup(items) {
+  return items
     .map(({ preview, original, description }) => {
-      return `<ul class="gallery">
-        <li>
- <a class="gallery__item" href="${original}">
-  <img class="gallery__image" src="${preview}" alt="${description}" />
-</a>
-</li>
-</ul>`;
+      return `<li class="gallery-item">
+                <a class="gallery-link" href="${original}">
+                  <img class="gallery-image" src="${preview}" alt="${description}" />
+                </a>
+              </li>`;
     })
     .join('');
 }
@@ -89,5 +86,4 @@ function createGalleryImg(item) {
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
-  captionType: 'alt',
 });
