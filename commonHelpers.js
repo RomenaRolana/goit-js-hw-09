@@ -2,5 +2,5 @@ import{S as c}from"./assets/vendor-870f0eb5.js";(function(){const o=document.cre
                 <a class="gallery-link" href="${i}">
                   <img class="gallery-image" src="${o}" alt="${a}" />
                 </a>
-              </li>`).join("")}new c(".gallery a",{captionsData:"alt",captionDelay:250});
+              </li>`).join("")}new c(".gallery a",{captionsData:"alt",captionDelay:250,overlayOpacity:.9});
 //# sourceMappingURL=commonHelpers.js.map
