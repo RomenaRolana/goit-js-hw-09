@@ -67,24 +67,24 @@ const galleryItems = [
       description: 'Lighthouse Coast Sea',
     },
   ];
-const galleryContainerEl = document.querySelector('.gallery');
-const imagesMarkup = createGalleryMarkup(galleryItems);
-galleryContainerEl.innerHTML = imagesMarkup;
-
-function createGalleryMarkup(items) {
-  return items
-    .map(({ preview, original, description }) => {
-      return `<li class="gallery-item">
-                <a class="gallery-link" href="${original}">
-                  <img class="gallery-image" src="${preview}" alt="${description}" />
-                </a>
-              </li>`;
-    })
-    .join('');
-}
-
-const lightbox = new SimpleLightbox('.gallery a', {
-  captionsData: 'alt',
-  captionDelay: 250,
-  overlayOpacity: 0.9,
-});
+  const galleryContainerEl = document.querySelector('.gallery');
+  const imagesMarkup = createGalleryMarkup(galleryItems);
+  galleryContainerEl.innerHTML = imagesMarkup; // Використання змінної imagesMarkup тут
+  
+  function createGalleryMarkup(items) {
+    return items
+      .map(({ preview, original, description }) => {
+        return `<li class="gallery-item">
+                  <a class="gallery-link" href="${original}">
+                    <img class="gallery-image" src="${preview}" alt="${description}" />
+                  </a>
+                </li>`;
+      })
+      .join('');
+  }
+  
+  const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+    overlayOpacity: 0.9,
+  });
